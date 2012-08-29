@@ -80,6 +80,7 @@ if( !function_exists( 'mb_substr' ) ) {
 	}
 }
 
+
 function getWordList(){
 	$wordList = array();
 	$fp = fopen('./words_utf8.dat','r');
@@ -101,4 +102,25 @@ function getWordList(){
 	fclose($fp);
 	return $wordList;
 }
+function getZhuyinwenList($wordList){
+  $zhuyinwneList = array();
+  foreach ($wordList as $word => $zhuyinwen){
+    $zhuyinwenList[$zhuyinwen][] = $word;
+  }
+  return $zhuyinwenList;
+}
+
+function debugPrint($zhuyinwenList){
+  
+  foreach ($zhuyinwenList as $key => $value){
+    echo "$key ";
+    foreach($value as $k => $v){
+      echo " $v";
+    }
+    echo "<br/>\n ";
+  }
+}
+
+
+
 ?>
