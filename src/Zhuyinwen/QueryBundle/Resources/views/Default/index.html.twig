@@ -1,1 +1,10 @@
-Hello {{ name }}!
+{% extends 'ZhuyinwenQueryBundle::layout.html.twig' %}
+
+{% block title %}注音文翻譯機{% endblock %}
+
+{% block content_header '查詢結果' %}
+
+{% block content %}
+<div id="zhuyinwen-query-result">
+</div>
+{% endblock %}
