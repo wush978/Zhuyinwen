@@ -9,10 +9,18 @@ use Zhuyinwen\QueryBundle\Entity\Term;
 
 class DefaultController extends Controller
 {
+	/**
+	 * @Route("/")
+	 */
+	public function indexAction() 
+	{
+		return new Response('<html><body>Welcome!</body></html>');
+	}
+	
     /**
      * @Route("/query/{zhuyin}")
      */
-    public function indexAction($zhuyin)
+    public function queryAction($zhuyin)
     {
     	$result = Term::query($zhuyin);
     	$retval = '';
@@ -26,4 +34,6 @@ class DefaultController extends Controller
     	}
         return new Response('<html><body>' . $retval . '</body></html>');
     }
+    
+    
 }
